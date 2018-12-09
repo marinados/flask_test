@@ -1,0 +1,2 @@
+py-mini-racer==0.1.15
+sqreen==1.13.4
