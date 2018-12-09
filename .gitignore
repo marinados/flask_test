@@ -3,3 +3,4 @@ sqreen.ini
 venv/
 __pycache__/
 main.pyc
+logs/

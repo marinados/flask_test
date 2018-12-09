@@ -1,19 +1,17 @@
-from sqreen_report_formatter import SqreenReportFormatter
-from emailer import Emailer
+from sqreen_reports_formatter import SqreenReportsFormatter
+from logger import Logger
 from slacker import Slacker
-
 
 class SqreenReportDispatcher:
 
-  LIST_OF_MESSANGERS = [Emailer, Slacker]
-  
-  def run(report):
-    message = message_for(report)
-    send_message(message)
+  LIST_OF_MESSENGERS = [Logger, Slacker]
 
-  def message_for(report):
-    SqreenReportFormatter.run(report)
+  def __init__(self, reports):
+    self.message = SqreenReportsFormatter(reports).run()
 
-  def send_message(message):
-    for messanger in LIST_OF_MESSANGERS:
-      messanger.run(message) 
+  def run(self):
+    self.send_message()    
+
+  def send_message(self):
+    for messenger in self.LIST_OF_MESSENGERS:
+      messenger(self.message).run() 
