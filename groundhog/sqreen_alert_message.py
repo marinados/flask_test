@@ -1,11 +1,16 @@
 import datetime
+from groundhog.logger import Logger
+from groundhog.slacker import Slacker
 
-class SqreenReportsFormatter:
+class SqreenAlertMessage:
+  
+  target_backends = [Logger, Slacker]
 
   def __init__(self, reports):
     self.reports = reports
+    self.text = self.get_text()
 
-  def run(self):
+  def get_text(self):
     formatted_reports = list(map(lambda report: self.format(report), self.reports))
     return '; '.join(formatted_reports)
 

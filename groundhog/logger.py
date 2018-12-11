@@ -6,4 +6,4 @@ class Logger:
     self.message = message
 
   def run(self):
-    current_app.logger.warn(self.message)
+    current_app.logger.warning(self.message)
