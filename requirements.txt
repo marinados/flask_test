@@ -15,6 +15,6 @@ pyOpenSSL==18.0.0
 requests==2.20.1
 six==1.11.0
 sqreen==1.13.4
-urllib3==1.24.1
+urllib3==1.26.5
 websocket-client==0.54.0
 Werkzeug==0.14.1
